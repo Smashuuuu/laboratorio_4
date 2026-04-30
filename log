@@ -43,3 +43,13 @@ treemap.c:115:16: error: implicit declaration of function ‘lower_than’ [-Wim
   115 |         while (lower_than(padre->pair->key, tree->current->pair->key)) {
       |                ^~~~~~~~~~
 7a8c55b
+Thu Apr 30 08:43:27 PM UTC 2026: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:4:
+treemap.c: In function ‘nextTreeMap’:
+treemap.c:115:16: error: implicit declaration of function ‘lower_than_int’ [-Wimplicit-function-declaration]
+  115 |         while (lower_than_int(padre->pair->key, tree->current->pair->key)) {
+      |                ^~~~~~~~~~~~~~
+2413f39
