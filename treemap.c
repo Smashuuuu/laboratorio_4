@@ -112,7 +112,7 @@ Pair * firstTreeMap(TreeMap * tree) {
 Pair * nextTreeMap(TreeMap * tree) {
     if (tree->current->right == NULL) {
         TreeNode *padre = tree->current->parent;
-        while (lower_than(padre->pair->key, tree->current->pair->key)) {
+        while (tree->lower_than(padre->pair->key, tree->current->pair->key)) {
             padre = padre->parent;
         }
         return padre->pair;

@@ -63,3 +63,9 @@ treemap.c:115:16: error: implicit declaration of function ‘lower_than’ [-Wim
   115 |         while (lower_than(padre->pair->key, tree->current->pair->key)) {
       |                ^~~~~~~~~~
 b0fc388
+Thu Apr 30 08:45:27 PM UTC 2026: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  6|7
+total_score: 8/60
+afe6c51
