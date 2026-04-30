@@ -111,7 +111,7 @@ Pair * firstTreeMap(TreeMap * tree) {
 
 Pair * nextTreeMap(TreeMap * tree) {
     if (tree->current->right == NULL) {
-        return tree->current->parent;
+        return tree->current->parent->pair;
     }
     
     if (tree->current->right != NULL) {
@@ -119,7 +119,7 @@ Pair * nextTreeMap(TreeMap * tree) {
         while (tree->current->left != NULL) {
             tree->current = tree->current->left;
         }
-        return tree->current;
+        return tree->current->pair;
     }
     
     return NULL;
