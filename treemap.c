@@ -111,7 +111,11 @@ Pair * firstTreeMap(TreeMap * tree) {
 
 Pair * nextTreeMap(TreeMap * tree) {
     if (tree->current->right == NULL) {
-        return tree->current->parent->pair;
+        TreeNode *padre = tree->current->parent;
+        while (lower_than(padre->pair->key, tree->current->pair->key)) {
+            padre = padre->parent;
+        }
+        return padre->pair;
     }
     
     if (tree->current->right != NULL) {
