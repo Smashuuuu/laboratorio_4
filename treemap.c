@@ -121,26 +121,13 @@ Pair * nextTreeMap(TreeMap * tree) {
             padre = padre->parent;
         }
         if (tree->lower_than(padre->pair->key, tree->current->pair->key)) {
+            tree->current = NULL;
             return NULL;
         }
         if (tree->lower_than(tree->current->pair->key, padre->pair->key)) {
             return padre->pair->key;
-        }
-        
+        }   
     }
-        /*tree->lower_than(tree->current->parent->pair->key, tree->current->pair->key)) {
-        return NULL;
-        }
-    TreeNode *padre = tree->current->parent;
-    while (tree->lower_than(padre->pair->key, tree->current->pair->key)) {
-        padre = padre->parent;
-    }
-    if (tree->lower_than(padre->pair->key, tree->current->pair->key))
-    TreeNode *padre = tree->current->parent;
-    while (tree->lower_than(padre->pair->key, tree->current->pair->key)) {
-        padre = padre->parent;
-    }*/
-    
     
     if (tree->current->right != NULL) {
         tree->current = tree->current->right;
