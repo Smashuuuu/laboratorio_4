@@ -220,3 +220,20 @@ Fri May  1 06:05:27 PM UTC 2026:
  1 file changed, 1 insertion(+), 1 deletion(-)
  tests:  0|0
 8c08080
+Fri May  1 06:14:31 PM UTC 2026: 
+ treemap.c | 13 +++----------
+ 1 file changed, 3 insertions(+), 10 deletions(-)
+Compilation failed
+In file included from test.c:4:
+treemap.c: In function ‘nextTreeMap’:
+treemap.c:123:30: error: expected statement before ‘)’ token
+  123 |         while (padre != NULL)) {
+      |                              ^
+treemap.c:123:9: error: this ‘while’ clause does not guard... [-Werror=misleading-indentation]
+  123 |         while (padre != NULL)) {
+      |         ^~~~~
+treemap.c:123:32: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘while’
+  123 |         while (padre != NULL)) {
+      |                                ^
+cc1: all warnings being treated as errors
+83424be
