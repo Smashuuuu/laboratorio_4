@@ -113,7 +113,7 @@ Pair * nextTreeMap(TreeMap * tree) {
     if (tree->current->right == NULL && 
         tree->lower_than(tree->current->pair->key, tree->current->parent->pair->key)) {
         tree->current = tree->current->parent;
-        return tree->current->parent->pair;
+        return tree->current->pair;
     }
     
     if (tree->current->right != NULL) {
