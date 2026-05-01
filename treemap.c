@@ -125,10 +125,12 @@ Pair * nextTreeMap(TreeMap * tree) {
                 tree->current = padre;
                 return padre->pair;
             }
+            if (tree->lower_than(padre->pair->key, tree->current->pair->key)) {
+                tree->current = NULL;
+                return NULL;
+            } 
             padre = padre->parent;
         }
-        tree->current = NULL;
-        return NULL;
     }
     return NULL;
 }
