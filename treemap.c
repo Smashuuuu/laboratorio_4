@@ -112,7 +112,16 @@ Pair * firstTreeMap(TreeMap * tree) {
 Pair * nextTreeMap(TreeMap * tree) {
     if (tree->current->right == NULL && 
         tree->lower_than(tree->current->pair->key, tree->current->parent->pair->key)) {
+        tree->current = tree->current->parent;
         return tree->current->parent->pair;
+    }
+    
+    if (tree->current->right != NULL) {
+        tree->current = tree->current->right;
+        while (tree->current->left != NULL) {
+            tree->current = tree->current->left;
+        }
+        return tree->current->pair;
     }
     
     if (tree->current->right == NULL) {
@@ -128,14 +137,6 @@ Pair * nextTreeMap(TreeMap * tree) {
             tree->current = padre;
             return padre->pair;
         }   
-    }
-    
-    if (tree->current->right != NULL) {
-        tree->current = tree->current->right;
-        while (tree->current->left != NULL) {
-            tree->current = tree->current->left;
-        }
-        return tree->current->pair;
     }
     
     return NULL;
