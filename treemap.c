@@ -121,16 +121,14 @@ Pair * nextTreeMap(TreeMap * tree) {
     if (tree->current->right == NULL) {
         TreeNode *padre = tree->current->parent;
         while (padre != NULL) {
-            if (tree->lower_than(padre->pair->key, tree->current->pair->key)) {
-                tree->current = NULL;
-                return NULL;
-            }
             if (tree->lower_than(tree->current->pair->key, padre->pair->key)) {
                 tree->current = padre;
                 return padre->pair;
-            }   
+            }
             padre = padre->parent;
         }
+        tree->current = NULL;
+        return NULL;
     }
     return NULL;
 }
