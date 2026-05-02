@@ -55,6 +55,24 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
 // Si no se encuentra la clave retorna NULL. Recuerde hacer que el current apunte al nodo encontrado.
 
 Pair * searchTreeMap(TreeMap * tree, void* key) {
+    TreeNode *actual = tree->root;
+    while(1) {
+        if (is_equal(tree, key, actual->pair->key)) {
+            return actual->pair;
+        }
+        if (tree->lower_than(key, actual->pair->key)) {
+            if (actual->left != NULL) {
+                actual = actual->left;
+            }
+            else return NULL;
+        }
+        else {
+                if (actual->right != NULL) {
+                    actual = actual->right;
+                }
+                else return NULL;
+        }
+    }
     return NULL;
 }
 
