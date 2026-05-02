@@ -68,10 +68,10 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
             else return NULL;
         }
         else {
-                if (actual->right != NULL) {
-                    actual = actual->right;
-                }
-                else return NULL;
+            if (actual->right != NULL) {
+                actual = actual->right;
+            }
+            else return NULL;
         }
     }
     return NULL;
@@ -83,7 +83,35 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 // Luego crear el nuevo nodo y enlazarlo. Si la clave del dato ya existe retorne sin hacer nada (recuerde que el mapa no permite claves repetidas).
 
 void insertTreeMap(TreeMap * tree, void* key, void * value) {
-
+    TreeNode *actual = tree->root;
+    while(1) {
+        if (is_equal(tree, key, actual->pair->key)) {
+            return;
+        }
+        if (tree->lower_than(key, actual->pair->key)) {
+            if (actual->left != NULL) {
+                actual = actual->left;
+            }
+            else {
+                TreeNode *new_node = createNode(key, value);
+                actual->left = new_node;
+                new_node->parent = actual;
+                return;
+            }
+        }
+        else {
+            if (actual->right != NULL) {
+                actual = actual->right;
+            }
+            else {
+                TreeNode *new_node = createNode(key, value);
+                actual->right = new_node;
+                new_node->parent = actual;
+                return;
+            }
+        }
+    }
+    return;
 }
 
 // 4. Implemente la función TreeNode * minimum(TreeNode * x). 
