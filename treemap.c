@@ -93,7 +93,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
                 actual = actual->left;
             }
             else {
-                TreeNode *new_node = createNode(key, value);
+                TreeNode *new_node = createTreeNode(key, value);
                 actual->left = new_node;
                 new_node->parent = actual;
                 return;
@@ -104,7 +104,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
                 actual = actual->right;
             }
             else {
-                TreeNode *new_node = createNode(key, value);
+                TreeNode *new_node = createTreeNode(key, value);
                 actual->right = new_node;
                 new_node->parent = actual;
                 return;
