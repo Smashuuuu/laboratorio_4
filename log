@@ -501,3 +501,24 @@ Sun May  3 04:25:25 AM UTC 2026:
  tests:  26|2
 total_score: 46/60
 8373f71
+Sun May  3 04:40:45 AM UTC 2026: 
+ treemap.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:4:
+treemap.c: In function ‘upperBound’:
+treemap.c:283:27: error: ‘tree_current’ undeclared (first use in this function)
+  283 |                 ub_node = tree_current
+      |                           ^~~~~~~~~~~~
+treemap.c:283:27: note: each undeclared identifier is reported only once for each function it appears in
+treemap.c:283:39: error: expected ‘;’ before ‘tree’
+  283 |                 ub_node = tree_current
+      |                                       ^
+      |                                       ;
+  284 |                 tree->current = tree->current->left;
+      |                 ~~~~                   
+treemap.c:286:18: error: statement with no effect [-Werror=unused-value]
+  286 |             else ub_node;
+      |                  ^~~~~~~
+cc1: all warnings being treated as errors
+e1c60cd
