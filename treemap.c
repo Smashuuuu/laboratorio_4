@@ -275,7 +275,7 @@ Pair * upperBound(TreeMap * tree, void* key) {
             if (tree->current->right != NULL) {
                 tree->current = tree->current->right;
             }
-            else return tree->current->pair;
+            else return NULL;
         }
         else {
             if (tree->current->left != NULL) {
@@ -286,5 +286,3 @@ Pair * upperBound(TreeMap * tree, void* key) {
     }
     return NULL;
 }
-
-
