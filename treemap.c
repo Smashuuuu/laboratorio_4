@@ -269,7 +269,7 @@ Pair * nextTreeMap(TreeMap * tree) {
 
 Pair * upperBound(TreeMap * tree, void* key) {
     tree->current = tree->root;
-    TreeNode *ub_node;
+    TreeNode *ub_node = tree->current;
     while (1) {
         if (is_equal(tree, tree->current->pair->key, key)) return tree->current->pair;
         if (tree->lower_than(tree->current->pair->key, key)) {
