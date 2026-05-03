@@ -280,7 +280,7 @@ Pair * upperBound(TreeMap * tree, void* key) {
         }
         else {
             if (tree->current->left != NULL) {
-                ub_node = tree_current;
+                ub_node = tree->current;
                 tree->current = tree->current->left;
             }
             else return ub_node->pair;
