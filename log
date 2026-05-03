@@ -445,3 +445,22 @@ Sun May  3 03:35:20 AM UTC 2026:
  tests:  24|2
 total_score: 46/60
 37e7d91
+Sun May  3 04:18:21 AM UTC 2026: 
+ treemap.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+Compilation failed
+In file included from test.c:4:
+treemap.c: In function ‘upperBound’:
+treemap.c:273:13: error: too few arguments to function ‘is_equal’
+  273 |         if (is_equal(tree->current->pair->key, key)) return tree->current->key;
+      |             ^~~~~~~~
+treemap.c:24:5: note: declared here
+   24 | int is_equal(TreeMap* tree, void* key1, void* key2){
+      |     ^~~~~~~~
+treemap.c:273:74: error: ‘TreeNode’ has no member named ‘key’
+  273 |         if (is_equal(tree->current->pair->key, key)) return tree->current->key;
+      |                                                                          ^~
+treemap.c:284:38: error: ‘TreeNode’ has no member named ‘key’
+  284 |             else return tree->current->key;
+      |                                      ^~
+3db0e79
