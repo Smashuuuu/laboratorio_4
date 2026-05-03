@@ -142,6 +142,60 @@ TreeNode * minimum(TreeNode * x){
 // Reemplace los datos (key,value) de node con los del nodo "minimum". Elimine el nodo minimum (para hacerlo puede usar la misma función removeNode).
 
 void removeNode(TreeMap * tree, TreeNode* node) {
+    if (node->parent == NULL && node->left == NULL && node->right == NULL) {
+        free(node);
+        tree->root == NULL;
+        return;
+    }
+    
+    if (node->left == NULL && node->right == NULL) {
+        if (is_equal(node->parent->left->pair->key, node->pair->key)) {
+            node->parent->left = NULL;
+            free(node);
+            return;
+        }
+        else {
+            node->parent->right = NULL;
+            free(node);
+            return;
+        }
+    }
+
+    if (node->left != NULL && node->right == NULL) {
+        node->left->parent = node->parent;
+        if (tree(lower_than(node->pair->key, node->parent->pair->key)) {
+            node->parent->left = node->left;
+            free(node);
+            return;
+        }
+        else {
+            node->parent->right = node->left;
+            free(node);
+            return;
+        }
+    }
+    
+    /*TreeNode *aux;
+    aux = node->left;
+    int cont = 0;
+    while (aux->right != NULL) {
+        aux = aux->right;
+        cont++;
+    }
+    if (cont != 0) {
+        if (aux->left != NULL) {
+            aux->left->parent = aux->parent;
+        }
+        node->pair = aux->pair
+        aux->parent->right = NULL;
+    }
+    else {
+        if (aux->left != NULL) {
+            aux->left->parent = aux->parent;
+        }
+        node->pair = aux->pair
+        node->left = NULL;
+    }*/
 
 }
 
