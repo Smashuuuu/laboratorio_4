@@ -269,14 +269,15 @@ Pair * nextTreeMap(TreeMap * tree) {
 
 Pair * upperBound(TreeMap * tree, void* key) {
     tree->current = tree->root;
-    TreeNode *ub_node = tree->current;
+    TreeNode *ub_node;
     while (1) {
         if (is_equal(tree, tree->current->pair->key, key)) return tree->current->pair;
         if (tree->lower_than(tree->current->pair->key, key)) {
             if (tree->current->right != NULL) {
+                ub_node = tree->current;
                 tree->current = tree->current->right;
             }
-            else return NULL;
+            else return ub_node->pair;
         }
         else {
             if (tree->current->left != NULL) {
