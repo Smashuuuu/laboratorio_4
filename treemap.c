@@ -274,7 +274,6 @@ Pair * upperBound(TreeMap * tree, void* key) {
         if (is_equal(tree, tree->current->pair->key, key)) return tree->current->pair;
         if (tree->lower_than(tree->current->pair->key, key)) {
             if (tree->current->right != NULL) {
-                ub_node = tree->current;
                 tree->current = tree->current->right;
             }
             else return ub_node->pair;
@@ -284,7 +283,7 @@ Pair * upperBound(TreeMap * tree, void* key) {
                 ub_node = tree->current;
                 tree->current = tree->current->left;
             }
-            else return ub_node->pair;
+            else return NULL;
         }
     }
     return NULL;
