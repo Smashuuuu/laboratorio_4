@@ -269,27 +269,22 @@ Pair * nextTreeMap(TreeMap * tree) {
 
 Pair * upperBound(TreeMap * tree, void* key) {
     tree->current = tree->root;
-    TreeNode *ub_node = tree->current;
-    while (1) {
+    TreeNode *ub_node = NULL;
+    
+    while (tree->current != NULL) {
         if (is_equal(tree, tree->current->pair->key, key)) return tree->current->pair;
         if (tree->lower_than(tree->current->pair->key, key)) {
-            if (tree->current->right != NULL) {
-                tree->current = tree->current->right;
-                if (tree->lower_than(ub_node->pair->key, tree->current->pair->key)) {
-                    ub_node = tree->current;
-                }
+            tree->current = tree->current->right;
+            if (tree->lower_than(ub_node->pair->key, tree->current->pair->key)) {
+                ub_node = tree->current;
             }
-            else return ub_node->pair;
         }
         else {
-            if (tree->current->left != NULL) {
-                tree->current = tree->current->left;
-                if (tree->lower_than(ub_node->pair->key, tree->current->pair->key)) {
-                    ub_node = tree->current;
-                }
+            tree->current = tree->current->left;
+            if (tree->lower_than(ub_node->pair->key, tree->current->pair->key)) {
+                ub_node = tree->current;
             }
-            else return ub_node->pair;
         }
     }
-    return NULL;
+    return ub_node->pair;
 }
