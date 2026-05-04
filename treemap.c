@@ -142,12 +142,14 @@ TreeNode * minimum(TreeNode * x){
 // Reemplace los datos (key,value) de node con los del nodo "minimum". Elimine el nodo minimum (para hacerlo puede usar la misma función removeNode).
 
 void removeNode(TreeMap * tree, TreeNode* node) {
+    // Caso en donde solo existe la raiz
     if (node->parent == NULL && node->left == NULL && node->right == NULL) {
         free(node);
         tree->root = NULL;
         return;
     }
-    
+
+    // Caso en donde se está en una hoja (nodo sin hijos)
     if (node->left == NULL && node->right == NULL) {
         if (tree->lower_than(node->pair->key, node->parent->pair->key)) {
             node->parent->left = NULL;
@@ -160,8 +162,10 @@ void removeNode(TreeMap * tree, TreeNode* node) {
             return;
         }
     }
-    
+
+    // Caso en donde el nodo solo tiene el hijo izquierdo
     if (node->left != NULL && node->right == NULL) {
+        // Por si llega a ser la raiz
         if (node->parent == NULL) {
             tree->root = node->left;
             node->left->parent = NULL;
@@ -180,8 +184,10 @@ void removeNode(TreeMap * tree, TreeNode* node) {
             return;
         }
     }
-    
+
+    // Caso en donde el nodo solo tiene el hijo derecho
     if (node->left == NULL && node->right != NULL) {
+        // Por si llega a ser la raiz
         if (node->parent == NULL) {
             tree->root = node->right;
             node->right->parent = NULL;
@@ -200,8 +206,11 @@ void removeNode(TreeMap * tree, TreeNode* node) {
             return;
         }
     }
+
+    // Caso en donde es la raiz y tiene 2 hijos
+    // Caso en donde tiene 2 hijos
     
-    /*TreeNode *aux;
+    TreeNode *aux;
     aux = node->left;
     int cont = 0;
     while (aux->right != NULL) {
@@ -211,17 +220,21 @@ void removeNode(TreeMap * tree, TreeNode* node) {
     if (cont != 0) {
         if (aux->left != NULL) {
             aux->left->parent = aux->parent;
+            aux->parent->right = aux->left;
         }
         node->pair = aux->pair
         aux->parent->right = NULL;
+        free(aux);
     }
     else {
         if (aux->left != NULL) {
             aux->left->parent = aux->parent;
+            aux->parent->right = aux->left;
         }
         node->pair = aux->pair
         node->left = NULL;
-    }*/
+        free(aux);
+    }
 
 }
 
