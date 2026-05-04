@@ -207,9 +207,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
         }
     }
 
-    // Caso en donde es la raiz y tiene 2 hijos
     // Caso en donde tiene 2 hijos
-    
     TreeNode *aux;
     aux = minimum(node->right);
     if (aux->right != NULL) {
@@ -225,43 +223,6 @@ void removeNode(TreeMap * tree, TreeNode* node) {
         free(aux);
         return;
     }
-
-
-
-
-
-
-
-
-
-    
-    /*if (cont != 0) {
-        if (aux->left != NULL) {
-            aux->left->parent = aux->parent;
-            aux->parent->right = aux->left;
-            node->pair = aux->pair;
-            free(aux);
-            return;
-        }
-        node->pair = aux->pair;
-        aux->parent->right = NULL;
-        free(aux);
-        return;
-    }
-    else {
-        if (aux->left != NULL) {
-            aux->left->parent = node;
-            node->left = aux->left;
-            node->pair = aux->pair;
-            free(aux);
-            return;
-        }
-        node->pair = aux->pair;
-        node->left = NULL;
-        free(aux);
-        return;
-    }*/
-
 }
 
 void eraseTreeMap(TreeMap * tree, void* key){
