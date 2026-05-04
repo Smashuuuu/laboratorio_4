@@ -211,13 +211,31 @@ void removeNode(TreeMap * tree, TreeNode* node) {
     // Caso en donde tiene 2 hijos
     
     TreeNode *aux;
-    aux = node->left;
-    int cont = 0;
-    while (aux->right != NULL) {
-        aux = aux->right;
-        cont++;
+    aux = minimum(node->right);
+    if (aux->right != NULL) {
+        aux->right->parent = aux->parent;
+        aux->parent->left = aux->right;
+        node->pair = aux->pair;
+        free(aux);
+        return;
     }
-    if (cont != 0) {
+    else {
+        aux->parent->left = NULL;
+        node->pair = aux->pair;
+        free(aux);
+        return;
+    }
+
+
+
+
+
+
+
+
+
+    
+    /*if (cont != 0) {
         if (aux->left != NULL) {
             aux->left->parent = aux->parent;
             aux->parent->right = aux->left;
@@ -242,7 +260,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
         node->left = NULL;
         free(aux);
         return;
-    }
+    }*/
 
 }
 
