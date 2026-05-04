@@ -222,7 +222,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
             aux->left->parent = aux->parent;
             aux->parent->right = aux->left;
         }
-        node->pair = aux->pair
+        node->pair = aux->pair;
         aux->parent->right = NULL;
         free(aux);
     }
